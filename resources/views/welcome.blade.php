@@ -100,7 +100,7 @@
                             new innovative ways to make that possible.</p>
                     </div>
                     <div>
-                        <p class="text-white pb-4">Location: Mulpani, Kathmandu</p>
+                        <p class="text-white pb-4">location: Mulpani, Kathmandu</p>
                         <p class="text-white pb-4"> mail: kutruke100@gmail.com</p>
                         <p class="text-white pb-4">call: 01-9987665</p>
                     </div>
