@@ -15,7 +15,7 @@
             <div class="shadow py-4 ">
                 <div class="container mx-auto ">
                     <div class="flex justify-between ">
-                        <p class="text-xl font-medium">$Khutruke.</p>
+                        <p class="text-xl font-medium">$Karobar.</p>
                         <div>
                             <a href="{{ route('login') }}" class="border-2 px-2 py-1 rounded">Login</a>
                             <a href="{{ route('register') }}" class="border-2 px-2 py-1 rounded">Register</a>
@@ -47,7 +47,7 @@
 
     <main>
         <div class="bg-blue-950">
-            <p class="text-center text-white text-3xl font-semibold py-4">Save on Khutruke Online plans that grow with
+            <p class="text-center text-white text-3xl font-semibold py-4">Save on Karobar Online plans that grow with
                 you
             </p>
         </div>
@@ -91,9 +91,9 @@
             <div class="container mx-auto">
                 <div class="grid grid-cols-2 gap-28 py-20">
                     <div>
-                        <p class="text-xl font-medium text-white pb-4">$Khutruke.</p>
+                        <p class="text-xl font-medium text-white pb-4">$Karobar.</p>
 
-                        <p class="text-white">Khutruke believes everyone should have the opportunity to prosper and we
+                        <p class="text-white">Karobar believes everyone should have the opportunity to prosper and we
                             never stop working
                             to
                             find
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <p class="text-white pb-6 text-center"> Copyright @ 2024 Khutruke. All rights reserved</p>
+                <p class="text-white pb-6 text-center"> Copyright @ 2024 Karobar. All rights reserved</p>
             </div>
         </div>
     </footer>

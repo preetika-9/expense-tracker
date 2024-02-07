@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TransactionController;
+
 use Illuminate\Support\Facades\Route;
 
 // website
@@ -9,8 +10,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// trnasaction
-Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
+
+// expenses
+Route::get('/expense', [ExpenseController::class, 'index'])->name('expense.index');
+Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expense.create');
+Route::post('/expense', [ExpenseController::class, 'store'])->name('expense.store');
+
+
+// income 
+
+
 
 
 Route::get('/dashboard', function () {

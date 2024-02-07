@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Khutruke</title>
+    <title>Home - Karobar</title>
     <!-- Css -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
     <!-- Font awesome -->
@@ -23,18 +23,17 @@
         <!-- sidebar -->
         <div class="sidebar">
             <span class="closeButton">&times;</span>
-            <p class="brand-title font-bold text-2xl"><a href="">$Khutruke.</a></p>
+            <p class="brand-title font-bold text-2xl"><a href="">$Karobar.</a></p>
 
 
             <div class="side-links">
                 <ul>
-                    <li><a href="{{ route('dashboard') }}">Dashboard</a>
+                    <li><a href="{{ route('dashboard') }}" class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                     </li>
-                    <li><a href="{{ route('transaction.index') }}">Transaction</a>
-                    </li>
+                   
                     <li><a href="">Incomes</a>
                     </li>
-                    <li><a href="">Expenses</a>
+                    <li><a href="{{ route('expense.index') }}" class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
                     </li>
                     <li><a href="">Budget</a>
                     </li>
@@ -55,7 +54,7 @@
                     <a href=""><i class="fab fa-twitter"></i></a>
                 </div>
 
-                <small style="color: grey">&copy 2021 Khutruke</small>
+                <small style="color: grey">&copy 2021 Karobar</small>
             </footer>
         </div>
         <!-- Menu Button -->
@@ -74,7 +73,7 @@
                 <a href=""><i class="fab fa-instagram"></i></a>
                 <a href=""><i class="fab fa-twitter"></i></a>
             </div>
-            <small style="color: grey">&copy 2021 Khutruke</small>
+            <small style="color: grey">&copy 2021 Karobar</small>
         </footer>
     </div>
 
