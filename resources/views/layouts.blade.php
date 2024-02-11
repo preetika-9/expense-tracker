@@ -23,7 +23,7 @@
         <!-- sidebar -->
         <div class="sidebar">
             <span class="closeButton">&times;</span>
-            <p class="brand-title font-bold text-2xl"><a href="">$Karobar.</a></p>
+            <p class="brand-title font-bold text-2xl"><a href="{{ route('dashboard') }}">$Karobar.</a></p>
 
 
             <div class="side-links">
@@ -31,8 +31,8 @@
                     <li><a href="{{ route('dashboard') }}" class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                     </li>
                    
-                    <li><a href="">Incomes</a>
-                    </li>
+                    {{-- <li><a href="{{ route('income.index') }}" class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
+                    </li> --}}
                     <li><a href="{{ route('expense.index') }}" class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
                     </li>
                     <li><a href="">Budget</a>

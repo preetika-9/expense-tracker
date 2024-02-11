@@ -15,8 +15,10 @@ Route::get('/', function () {
 Route::get('/expense', [ExpenseController::class, 'index'])->name('expense.index');
 Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expense.create');
 Route::post('/expense', [ExpenseController::class, 'store'])->name('expense.store');
+Route::get('/expense/{expenses}/edit', [ExpenseController::class, 'edit'])->name('expense.edit');
+Route::put('/expense/{expenses}', [ExpenseController::class, 'update'])->name('expense.update');
 
-
+Route::delete('/expense/{expenses}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
 // income 
 
 

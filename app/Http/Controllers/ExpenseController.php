@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('expenses.expense');
+        $expenses = Expense::all();
+        return view('expenses.expense', compact('expenses'));
     }
     public function create()
     {
@@ -18,18 +19,12 @@ class ExpenseController extends Controller
     }
     public function store(ExpenseRequest $request)
     {
-        
-        
-
-       
-
         $name = $request->input('name');
         $amount = $request->input('amount');
         $category = $request->input('category');
         $account = $request->input('account');
         $date = $request->input('date');
         $description = $request->input('description');
-
 
         $expense = new Expense();
         $expense->name = $name;
@@ -41,9 +36,38 @@ class ExpenseController extends Controller
 
         $expense->save();
         // dd($expense);
-        return redirect()->back()->with('status' , 'Expenses Created Successfully');
+        return redirect()->back()->with('status', 'Expenses Created Successfully');
     }
-    public function edit()
+    public function edit(Expense $expenses)
     {
+        // dd($expenses);
+        return view('expenses.edit-expense', compact('expenses'));
+    }
+
+    public function update(ExpenseRequest $request, Expense $expenses){
+
+        // dd($expenses->id);
+        $name = $request->input('name');
+        $amount = $request->input('amount');
+        $category = $request->input('category');
+        $account = $request->input('account');
+        $date = $request->input('date');
+        $description = $request->input('description');
+
+        $expenses->name = $name;
+        $expenses->amount = $amount;
+        $expenses->category = $category;
+        $expenses->account = $account;
+        $expenses->date = $date;
+        $expenses->description = $description;
+
+        $expenses->save();
+        return redirect()->back()->with('status' , 'Expenses Edited Successfully');
+    }
+
+    public function destroy(Expense $expenses)
+    {
+        $expenses->delete();
+        return redirect()->back()->with('status', 'Expense Deleted Successfully');
     }
 }
