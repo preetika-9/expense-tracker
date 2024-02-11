@@ -31,15 +31,15 @@
                     <li><a href="{{ route('dashboard') }}" class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                     </li>
                    
-                    {{-- <li><a href="{{ route('income.index') }}" class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
-                    </li> --}}
+                    <li><a href="{{ route('income.index') }}" class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
+                    </li>
                     <li><a href="{{ route('expense.index') }}" class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
                     </li>
                     <li><a href="">Budget</a>
                     </li>
                     <li><a href="">Lists</a>
                     </li>
-                    <li><a href="">Expenses Category</a>
+                    <li><a href="{{ route('expenseCategory.index') }}" class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Expenses Category</a>
                     </li>
                     <li><a href="">Income Category</a>
                     </li>

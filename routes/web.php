@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ProfileController;
 
 use Illuminate\Support\Facades\Route;
@@ -17,11 +19,25 @@ Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expen
 Route::post('/expense', [ExpenseController::class, 'store'])->name('expense.store');
 Route::get('/expense/{expenses}/edit', [ExpenseController::class, 'edit'])->name('expense.edit');
 Route::put('/expense/{expenses}', [ExpenseController::class, 'update'])->name('expense.update');
-
 Route::delete('/expense/{expenses}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
+
+
 // income 
+Route::get('/income', [IncomeController::class, 'index'])->name('income.index');
+Route::get('/income/create',[IncomeController::class,'create'])->name('income.create');
+Route::post('/income',[IncomeController::class,'store'])->name('income.store');
+Route::get('/income/{incomes}/edit',[IncomeController::class,'edit'])->name('income.edit');
+Route::put('/income/{incomes}',[IncomeController::class,'update'])->name('income.update');
+Route::delete('income/{incomes}', [IncomeController::class,'destroy'])->name('income.destroy');
 
 
+// expense catgeory
+Route::get('/expense-category', [ExpenseCategoryController::class, 'index'])->name('expenseCategory.index');
+Route::get('/expense-category/create', [ExpenseCategoryController::class, 'create'])->name('expenseCategory.create');
+Route::post('/expense-category', [ExpenseCategoryController::class, 'store'])->name('expenseCategory.store');
+Route::get('/expense-category/{expenseCategories}/edit', [ExpenseCategoryController::class, 'edit'])->name('expenseCategory.edit');
+Route::put('/expense-category/{expenseCategories}', [ExpenseCategoryController::class, 'update'])->name('expenseCategory.update');
+Route::delete('/expense-category/{expenseCategories}', [ExpenseCategoryController::class, 'destroy'])->name('expenseCategory.destroy');
 
 
 Route::get('/dashboard', function () {
