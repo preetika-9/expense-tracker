@@ -41,7 +41,7 @@
                     </li>
                     <li><a href="{{ route('expenseCategory.index') }}" class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Expenses Category</a>
                     </li>
-                    <li><a href="">Income Category</a>
+                    <li><a href="{{ route('incomeCategory.index') }}" class="{{ Request::routeIs('incomeCategory.index') ? 'active' : '' }}">Income Category</a>
                     </li>
                 </ul>
             </div>

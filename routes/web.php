@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ProfileController;
 
@@ -38,6 +39,15 @@ Route::post('/expense-category', [ExpenseCategoryController::class, 'store'])->n
 Route::get('/expense-category/{expenseCategories}/edit', [ExpenseCategoryController::class, 'edit'])->name('expenseCategory.edit');
 Route::put('/expense-category/{expenseCategories}', [ExpenseCategoryController::class, 'update'])->name('expenseCategory.update');
 Route::delete('/expense-category/{expenseCategories}', [ExpenseCategoryController::class, 'destroy'])->name('expenseCategory.destroy');
+
+
+// income category
+Route::get('/income-category', [IncomeCategoryController::class, 'index'])->name('incomeCategory.index');
+Route::get('/income-category/create', [IncomeCategoryController::class, 'create'])->name('incomeCategory.create');
+Route::post('/income-category', [IncomeCategoryController::class, 'store'])->name('incomeCategory.store');
+Route::get('/income-category/{incomeCategories}/edit', [IncomeCategoryController::class, 'edit'])->name('incomeCategory.edit');
+Route::put('/income-category/{incomeCategories}', [IncomeCategoryController::class, 'update'])->name('incomeCategory.update');
+Route::delete('/income-category/{incomeCategories}', [IncomeCategoryController::class, 'destroy'])->name('incomeCategory.destroy');
 
 
 Route::get('/dashboard', function () {
