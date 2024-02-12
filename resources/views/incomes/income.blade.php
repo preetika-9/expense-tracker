@@ -43,9 +43,14 @@
                         </thead>
                         <tbody>
                             @foreach ($incomes as $income)
+                            @php
+                                $incomeCat = '';
+                                $incomeCategory = $incomeCategories->where('id', $income->category)->first();
+                                $incomeCat = $incomeCategory ? $incomeCategory->name : $income->category;
+                            @endphp
                                 <tr>
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->name }}</td>
-                                    <td class="border border-slate-700 px-2 py-1">{{ $income->category }}</td>
+                                    <td class="border border-slate-700 px-2 py-1">{{ $incomeCat  }}</td>
 
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->account }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->description }}</td>

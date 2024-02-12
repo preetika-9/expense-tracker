@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IncomeRequest;
 use App\Models\Income;
-
+use App\Models\IncomeCategory;
 
 class IncomeController extends Controller
 {
     public function index(){
         $incomes = Income::all();
-        return view('incomes.income', compact('incomes'));
+        $incomeCategories = IncomeCategory::all();
+        return view('incomes.income', compact('incomes','incomeCategories'));
     }
 
     public function create(){
-        return view('incomes.create-income');
+        $incomeCategories = IncomeCategory::all();
+        return view('incomes.create-income', compact('incomeCategories'));
     }
 
     public function store(IncomeRequest $request){

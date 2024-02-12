@@ -28,20 +28,28 @@
 
             <div class="side-links">
                 <ul>
-                    <li><a href="{{ route('dashboard') }}" class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
+                    <li class="flex">
+                        {{-- <img src="{{ asset('images/home.svg') }}" class=" w-10 pr-4"/> --}}
+                        <a href="{{ route('dashboard') }}"
+                            class="{{ Request::routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                     </li>
-                   
-                    <li><a href="{{ route('income.index') }}" class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
+
+                    <li><a href="{{ route('income.index') }}"
+                            class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
                     </li>
-                    <li><a href="{{ route('expense.index') }}" class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
+                    <li><a href="{{ route('expense.index') }}"
+                            class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
                     </li>
                     <li><a href="">Budget</a>
                     </li>
                     <li><a href="">Lists</a>
                     </li>
-                    <li><a href="{{ route('expenseCategory.index') }}" class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Expenses Category</a>
+                    <li><a href="{{ route('expenseCategory.index') }}"
+                            class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Expenses
+                            Category</a>
                     </li>
-                    <li><a href="{{ route('incomeCategory.index') }}" class="{{ Request::routeIs('incomeCategory.index') ? 'active' : '' }}">Income Category</a>
+                    <li><a href="{{ route('incomeCategory.index') }}"
+                            class="{{ Request::routeIs('incomeCategory.index') ? 'active' : '' }}">Income Category</a>
                     </li>
                 </ul>
             </div>
