@@ -14,12 +14,12 @@
                     {{-- expenses --}}
 
                     @if (session()->has('status'))
-                    <div class="text-red-900 text-center text-2xl">
-                        {{ session()->get('status') }}
-                    </div>
-                @endif
+                        <div class="text-red-900 text-center text-2xl">
+                            {{ session()->get('status') }}
+                        </div>
+                    @endif
                     <p class="text-3xl">Create Expenses</p>
-                  
+
 
                     <div class="w-1/2  ">
                         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('expense.store') }}"
@@ -51,9 +51,14 @@
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
                                     Category
                                 </label>
-                                <input
+                                <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     id="category" name="category" type="text" placeholder=" Category">
+                                    <option selected disabled>Select Category</option>
+                                    @foreach ($expenseCategories as $expenseCategorie)
+                                        <option value="{{ $expenseCategorie->id }}">{{ $expenseCategorie->name }}</option>
+                                    @endforeach
+                                </select>
                                 @error('category')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror

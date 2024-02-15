@@ -43,10 +43,15 @@
                         </thead>
                         <tbody>
                             @foreach ($expenses as $expense)
+                            @php
+                                $expenseCat = '';
+                                $expenseCategory = $expenseCategories->where('id', $expense->category)->first();
+                                $expenseCat = $expenseCategory ? $expenseCategory->name : $expense->category;
+                            @endphp
                                 <tr>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->name }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->date }}</td>
-                                    <td class="border border-slate-700 px-2 py-1">{{ $expense->category }}</td>
+                                    <td class="border border-slate-700 px-2 py-1">{{ $expenseCat }}</td>
 
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->account }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->description }}</td>
