@@ -35,22 +35,26 @@
                     </li>
 
                     <li><a href="{{ route('income.index') }}"
-                            class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Incomes</a>
+                            class="{{ Request::routeIs('income.index') ? 'active' : '' }}">Earning</a>
                     </li>
                     <li><a href="{{ route('expense.index') }}"
-                            class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Expenses</a>
+                            class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Spending</a>
                     </li>
+                    <li><a href="{{ route('expense.index') }}"
+                        class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Accounts</a>
+                </li>
                     <li><a href="">Budget</a>
                     </li>
                     <li><a href="">Lists</a>
                     </li>
+                    <li><a href="{{ route('incomeCategory.index') }}"
+                            class="{{ Request::routeIs('incomeCategory.index') ? 'active' : '' }}">Earning Category</a>
+                    </li>
                     <li><a href="{{ route('expenseCategory.index') }}"
-                            class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Expenses
+                            class="{{ Request::routeIs('expenseCategory.index') ? 'active' : '' }}">Spending
                             Category</a>
                     </li>
-                    <li><a href="{{ route('incomeCategory.index') }}"
-                            class="{{ Request::routeIs('incomeCategory.index') ? 'active' : '' }}">Income Category</a>
-                    </li>
+
                 </ul>
             </div>
 
