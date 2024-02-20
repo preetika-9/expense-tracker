@@ -40,8 +40,8 @@
                     <li><a href="{{ route('expense.index') }}"
                             class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Spending</a>
                     </li>
-                    <li><a href="{{ route('expense.index') }}"
-                        class="{{ Request::routeIs('expense.index') ? 'active' : '' }}">Accounts</a>
+                    <li><a href="{{ route('account.index') }}"
+                        class="{{ Request::routeIs('account.index') ? 'active' : '' }}">Accounts</a>
                 </li>
                     <li><a href="">Budget</a>
                     </li>

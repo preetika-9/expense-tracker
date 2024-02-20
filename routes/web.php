@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IncomeCategoryController;
@@ -25,11 +26,11 @@ Route::delete('/expense/{expenses}', [ExpenseController::class, 'destroy'])->nam
 
 // income 
 Route::get('/income', [IncomeController::class, 'index'])->name('income.index');
-Route::get('/income/create',[IncomeController::class,'create'])->name('income.create');
-Route::post('/income',[IncomeController::class,'store'])->name('income.store');
-Route::get('/income/{incomes}/edit',[IncomeController::class,'edit'])->name('income.edit');
-Route::put('/income/{incomes}',[IncomeController::class,'update'])->name('income.update');
-Route::delete('income/{incomes}', [IncomeController::class,'destroy'])->name('income.destroy');
+Route::get('/income/create', [IncomeController::class, 'create'])->name('income.create');
+Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+Route::get('/income/{incomes}/edit', [IncomeController::class, 'edit'])->name('income.edit');
+Route::put('/income/{incomes}', [IncomeController::class, 'update'])->name('income.update');
+Route::delete('income/{incomes}', [IncomeController::class, 'destroy'])->name('income.destroy');
 
 
 // expense catgeory
@@ -48,6 +49,14 @@ Route::post('/income-category', [IncomeCategoryController::class, 'store'])->nam
 Route::get('/income-category/{incomeCategories}/edit', [IncomeCategoryController::class, 'edit'])->name('incomeCategory.edit');
 Route::put('/income-category/{incomeCategories}', [IncomeCategoryController::class, 'update'])->name('incomeCategory.update');
 Route::delete('/income-category/{incomeCategories}', [IncomeCategoryController::class, 'destroy'])->name('incomeCategory.destroy');
+
+// accounts
+Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+Route::get('/account/create', [AccountController::class, 'create'])->name('account.create');
+Route::post('/account', [AccountController::class, 'store'])->name('account.store');
+Route::get('/account/{account}/edit', [AccountController::class, 'edit'])->name('account.edit');
+Route::put('/account/{account}', [AccountController::class, 'update'])->name('account.update');
+Route::delete('/account/{account}', [AccountController::class, 'destroy'])->name('account.destroy');
 
 
 Route::get('/dashboard', function () {
