@@ -17,6 +17,7 @@
                         </div>
                     @endif
 
+                   <div class="flex justify-between">
                     <p class="text-3xl pb-6">Accounts</p>
                     <div class="mb-10">
                         <a href="{{ route('account.create') }}"
@@ -25,6 +26,7 @@
                             <span class="text-2xl">+</span> Add New Account
                         </a>
                     </div>
+                   </div>
 
                     {{-- {{ $expenses }} --}}
 
@@ -33,7 +35,7 @@
                             <tr>
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Title</th>
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Amount</th>
-                                <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Action</th>
+                                {{-- <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +44,7 @@
                                     <td class="border border-slate-700 px-2 py-1">{{ $account->name }}</td>
 
                                     <td class="border border-slate-700 px-2 py-1">{{ $account->amount }}</td>
-                                    <td class="border border-slate-700 px-2 py-1 flex">
+                                    {{-- <td class="border border-slate-700 px-2 py-1 flex">
                                         <a href="{{ route('account.edit', $account) }}"
                                             style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
 
@@ -54,7 +56,7 @@
                                                 style="padding: 10px; background: red; color: white; border: 1px solid red" />
 
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

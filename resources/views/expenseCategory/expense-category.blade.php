@@ -17,13 +17,15 @@
                         </div>
                     @endif
 
-                    <p class="text-3xl pb-6">Expense Category</p>
-                    <div class="mb-10">
-                        <a href="{{ route('expenseCategory.create') }}"
-                            class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="button">
-                            <span class="text-2xl">+</span> Add Expense Category
-                        </a>
+                    <div class="flex justify-between">
+                        <p class="text-3xl pb-6">Expense Category</p>
+                        <div class="mb-10">
+                            <a href="{{ route('expenseCategory.create') }}"
+                                class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="button">
+                                <span class="text-2xl">+</span> Add Expense Category
+                            </a>
+                        </div>
                     </div>
 
 
@@ -54,7 +56,7 @@
                                             @method('delete')
                                             <input type="submit" value="Delete"
                                                 style="padding: 10px; background: red; color: white; border: 1px solid red" />
-                                
+
                                         </form>
                                     </td>
                                 </tr>

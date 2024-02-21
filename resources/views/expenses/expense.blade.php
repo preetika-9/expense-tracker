@@ -3,7 +3,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Transaction
+                Spending
             </h2>
         </x-slot>
 
@@ -16,14 +16,25 @@
                             {{ session()->get('status') }}
                         </div>
                     @endif
+                    <div class="flex justify-between">
 
-                    <p class="text-3xl pb-6">Expenses Report</p>
-                    <div class="mb-10">
-                        <a href="{{ route('expense.create') }}"
-                            class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="button">
-                            <span class="text-2xl">+</span> Add Expenses
-                        </a>
+                        <p class="text-3xl pb-6">Expenses Report</p>
+                        <div class="flex ">
+                            <div class="mb-10 pr-6">
+                                <a href="{{ route('expenseCategory.create') }}"
+                                    class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="button">
+                                    <span class="text-2xl">+</span> Add Expense Category
+                                </a>
+                            </div>
+                            <div class="mb-10">
+                                <a href="{{ route('expense.create') }}"
+                                    class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="button">
+                                    <span class="text-2xl">+</span> Add Expenses
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     {{-- {{ $expenses }} --}}
