@@ -31,8 +31,8 @@
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
-                                <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Title</th>
-                                <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Date</th>
+                                {{-- <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Title</th>
+                                <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Date</th> --}}
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Category</th>
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Account</th>
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Description
@@ -43,20 +43,15 @@
                         </thead>
                         <tbody>
                             @foreach ($expenses as $expense)
-                            @php
-                                $expenseCat = '';
-                                $expenseCategory = $expenseCategories->where('id', $expense->category)->first();
-                                $expenseCat = $expenseCategory ? $expenseCategory->name : $expense->category;
-                            @endphp
                                 <tr>
-                                    <td class="border border-slate-700 px-2 py-1">{{ $expense->name }}</td>
+                                    {{-- <td class="border border-slate-700 px-2 py-1">{{ $expense->name }}</td> --}}
                                     {{-- <td class="border border-slate-700 px-2 py-1">{{ $expense->date }}</td> --}}
-                                    <td class="border border-slate-700 px-2 py-1">{{ $expenseCat }}</td>
+                                    <td class="border border-slate-700 px-2 py-1">{{ $expense->expenseCategory->name }}</td>
 
-                                    <td class="border border-slate-700 px-2 py-1">{{ $expense->account }}</td>
+                                    <td class="border border-slate-700 px-2 py-1">{{ $expense->account->name }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->description }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->amount }}</td>
-                                    <td class="border border-slate-700 px-2 py-1 tw-flex">
+                                    <td class="border border-slate-700 px-2 py-1 flex">
                                         <a href="{{ route('expense.edit', $expense) }}"
                                             style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
                                             {{-- <img src="{{ asset('images/edit.svg') }}" /> --}}

@@ -45,7 +45,7 @@
                                     <td class="border border-slate-700 px-2 py-1">{{ $expenseCat->name }}</td>
 
 
-                                    <td class="border border-slate-700 px-2 py-1 tw-flex">
+                                    <td class="border border-slate-700 px-2 py-1 flex">
                                         <a href="{{ route('expenseCategory.edit', $expenseCat) }}"
                                             style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
                                         </a>

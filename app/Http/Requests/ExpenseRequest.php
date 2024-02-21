@@ -22,11 +22,10 @@ class ExpenseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+
             'amount' => 'required',
-            'category' => 'required',
-            'account' => 'required',
-            'date' => 'required',
+            'expense_category_id' => 'required',
+            'account_id' => 'required',
             'description' => 'required',
         ];
     }

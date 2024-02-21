@@ -25,17 +25,8 @@
                         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('income.store') }}"
                             method="post">
                             @csrf
-                            <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                    Name
-                                </label>
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="name" name="name" type="text" placeholder= "Name">
-                                @error('name')
-                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                @enderror
-                            </div>
+                           
+                            
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">
                                     Amount
@@ -53,13 +44,13 @@
                                 </label>
                                 <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="category" name="category" type="text" placeholder=" Category">
+                                    id="category" name="income_category_id" type="text" placeholder="Category">
                                     <option selected disabled>Select Category</option>
                                     @foreach ($incomeCategories as $incomeCategorie)
                                         <option value="{{ $incomeCategorie->id }}">{{ $incomeCategorie->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('category')
+                                @error('income_category_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -69,13 +60,13 @@
                                 </label>
                                 <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="category" name="category" type="text" placeholder=" Category">
+                                id="account" name="account_id" type="text" placeholder=" account">
                                 <option selected disabled>Select Account</option>
                                 @foreach ($accounts as $account)
                                     <option value="{{ $account->id }}">{{ $account->name }}</option>
                                 @endforeach
                             </select>
-                                @error('account')
+                                @error('account_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->decimal('amount', 10, 2);
-            $table->foreignId('expense_categorie_id')->references('id')->on('expense_categories')->onDelete('cascade');
+            $table->foreignId('expense_category_id')->references('id')->on('expense_categories')->onDelete('cascade');
             $table->foreignId('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->string('description');
             $table->timestamps();

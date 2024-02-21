@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ExpenseRequest;
+use App\Models\Account;
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
 use Illuminate\Http\Request;
@@ -13,32 +14,31 @@ class ExpenseController extends Controller
     {
         $expenses = Expense::all();
         $expenseCategories = ExpenseCategory::all();
-        return view('expenses.expense', compact('expenses','expenseCategories'));
+        return view('expenses.expense', compact('expenses', 'expenseCategories'));
     }
     public function create()
     {
         $expenseCategories = ExpenseCategory::all();
-        return view('expenses.create-expense', compact('expenseCategories'));
+        $accounts = Account::all();
+        return view('expenses.create-expense', compact('expenseCategories', 'accounts'));
     }
     public function store(ExpenseRequest $request)
     {
-        $name = $request->input('name');
+        
         $amount = $request->input('amount');
-        $category = $request->input('category');
-        $account = $request->input('account');
-        $date = $request->input('date');
+        $expense_category_id = $request->input('expense_category_id');
+        $account_id = $request->input('account_id');
         $description = $request->input('description');
 
         $expense = new Expense();
-        $expense->name = $name;
+        
         $expense->amount = $amount;
-        $expense->category = $category;
-        $expense->account = $account;
-        $expense->date = $date;
+        $expense->expense_category_id = $expense_category_id;
+        $expense->account_id = $account_id;
         $expense->description = $description;
 
         $expense->save();
-        // dd($expense);
+   
         return redirect()->back()->with('status', 'Expenses Created Successfully');
     }
     public function edit(Expense $expenses)
@@ -47,25 +47,24 @@ class ExpenseController extends Controller
         return view('expenses.edit-expense', compact('expenses'));
     }
 
-    public function update(ExpenseRequest $request, Expense $expenses){
+    public function update(ExpenseRequest $request, Expense $expenses)
+    {
 
         // dd($expenses->id);
-        $name = $request->input('name');
+
         $amount = $request->input('amount');
-        $category = $request->input('category');
-        $account = $request->input('account');
-        $date = $request->input('date');
+        $expense_category_id = $request->input('expense_category_id');
+        $account_id = $request->input('account_id');
         $description = $request->input('description');
 
-        $expenses->name = $name;
+
         $expenses->amount = $amount;
-        $expenses->category = $category;
-        $expenses->account = $account;
-        $expenses->date = $date;
+        $expenses->expense_category_id = $expense_category_id;
+        $expenses->account_id = $account_id;
         $expenses->description = $description;
 
         $expenses->save();
-        return redirect()->back()->with('status' , 'Expenses Edited Successfully');
+        return redirect()->back()->with('status', 'Expenses Edited Successfully');
     }
 
     public function destroy(Expense $expenses)

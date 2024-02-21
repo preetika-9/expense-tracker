@@ -26,17 +26,17 @@ class IncomeController extends Controller
     public function store(IncomeRequest $request)
     {
 
-        $name = $request->input('name');
+
         $amount = $request->input('amount');
-        $category = $request->input('category');
-        $account = $request->input('account');
+        $income_category_id = $request->input('income_category_id');
+        $account_id = $request->input('account_id');
         $description = $request->input('description');
 
         $income = new Income();
-        $income->name = $name;
+
         $income->amount = $amount;
-        $income->category = $category;
-        $income->account = $account;
+        $income->income_category_id = $income_category_id;
+        $income->account_id = $account_id;
         $income->description = $description;
         // dd('create income', $income);
         $income->save();
@@ -44,22 +44,22 @@ class IncomeController extends Controller
     }
     public function edit(Income $incomes, IncomeCategory $incomeCategories, Account $accounts)
     {
-    //    dd($incomeCategories);
-        return view('incomes.edit-income', compact('incomes','incomeCategories','accounts'));
+        //    dd($incomeCategories);
+        return view('incomes.edit-income', compact('incomes', 'incomeCategories', 'accounts'));
     }
     public function update(IncomeRequest $request, Income $incomes)
     {
-        $name = $request->input('name');
+
         $amount = $request->input('amount');
-        $category = $request->input('category');
-        $account = $request->input('account');
+        $category_id = $request->input('category_id');
+        $account_id = $request->input('account_id');
 
         $description = $request->input('description');
 
-        $incomes->name = $name;
+
         $incomes->amount = $amount;
-        $incomes->category = $category;
-        $incomes->account = $account;
+        $incomes->category_id = $category_id;
+        $incomes->account_id = $account_id;
         $incomes->description = $description;
 
         $incomes->save();

@@ -18,28 +18,19 @@
                     {{-- @include('includes.flash-message') --}}
 
                     <div class="w-1/2  ">
-                        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('expense.update', $expenses) }}"
-                            method="post">
+                        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                            action="{{ route('expense.update', $expenses) }}" method="post">
                             @csrf
                             @method('put')
-                            <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                    Name
-                                </label>
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="name" name="name" type="text" placeholder= "Name" value="{{ $expenses->name }}">
-                                @error('name')
-                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                @enderror
-                            </div>
+
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">
                                     Amount
                                 </label>
                                 <input
                                     class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="amount" name="amount" type="text" placeholder="Amount" value="{{ $expenses->amount }}">
+                                    id="amount" name="amount" type="text" placeholder="Amount"
+                                    value="{{ $expenses->amount }}">
                                 @error('amount')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
@@ -50,7 +41,8 @@
                                 </label>
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="category" name="category" type="text" placeholder=" Category" value="{{ $expenses->category }}">
+                                    id="category" name="category" type="text" placeholder=" Category"
+                                    value="{{ $expenses->expenseCategory->name }}">
                                 @error('category')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
@@ -61,29 +53,21 @@
                                 </label>
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="account" name="account" type="text" placeholder=" Account" value="{{ $expenses->account }}">
+                                    id="account" name="account" type="text" placeholder=" Account"
+                                    value="{{ $expenses->account->name }}">
                                 @error('account')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
-                                    Date
-                                </label>
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="date" name="date" type="text" placeholder=" Date" value="{{ $expenses->date }}">
-                                @error('date')
-                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                @enderror
-                            </div>
+
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
                                     Description
                                 </label>
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="description" name="description" type="text" placeholder="Add Notes" value="{{ $expenses->description }}">
+                                    id="description" name="description" type="text" placeholder="Add Notes"
+                                    value="{{ $expenses->description }}">
                                 @error('description')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror

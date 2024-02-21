@@ -42,7 +42,7 @@
                                     <td class="border border-slate-700 px-2 py-1">{{ $account->name }}</td>
 
                                     <td class="border border-slate-700 px-2 py-1">{{ $account->amount }}</td>
-                                    <td class="border border-slate-700 px-2 py-1 tw-flex">
+                                    <td class="border border-slate-700 px-2 py-1 flex">
                                         <a href="{{ route('account.edit', $account) }}"
                                             style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
 
