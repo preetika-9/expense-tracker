@@ -52,15 +52,14 @@
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->description }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $expense->amount }}</td>
                                     <td class="border border-slate-700 px-2 py-1 flex">
-                                        <a href="{{ route('expense.edit', $expense) }}"
-                                            style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
+                                        <a href="{{ route('expense.edit', $expense) }}" class="edit-btn">Edit
                                             {{-- <img src="{{ asset('images/edit.svg') }}" /> --}}
                                         </a>
                                         <form action="{{ route('expense.destroy', $expense) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <input type="submit" value="Delete"
-                                                style="padding: 10px; background: red; color: white; border: 1px solid red" />
+                                                style="padding: 10px; background: red; color: white; border: 1px solid red;  border-radius: 5px" />
                                             {{-- <img src="{{ asset('images/delete.svg') }}" /> --}}
                                         </form>
                                     </td>

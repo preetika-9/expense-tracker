@@ -40,6 +40,14 @@ class IncomeController extends Controller
         $income->description = $description;
         // dd('create income', $income);
         $income->save();
+
+          //Logic to update the account related to the expense.
+          $account = $income->account;
+          $currentBalance = $account->amount;
+          $newBalance = $currentBalance + $income->amount;
+          $account->update(['amount' => $newBalance]);
+
+
         return redirect()->back()->with('status', 'Income Created Successfully');
     }
     public function edit(Income $incomes, IncomeCategory $incomeCategories, Account $accounts)
@@ -55,9 +63,10 @@ class IncomeController extends Controller
         $amount = $request->input('amount');
         $income_category_id = $request->input('income_category_id');
         $account_id = $request->input('account_id');
-
         $description = $request->input('description');
 
+         // old amount of expence store here in a variable
+         $oldAmount = $incomes->amount;
 
         $incomes->amount = $amount;
         $incomes->income_category_id = $income_category_id;
@@ -65,6 +74,13 @@ class IncomeController extends Controller
         $incomes->description = $description;
 
         $incomes->save();
+
+         // update account amount here.
+         $account = $incomes->account;
+         $currentBalance = $account->amount;
+         $newBalance = $currentBalance - $oldAmount + $incomes->$incomes->amount;
+         $account->update(['amount' => $newBalance]);
+
         return redirect()->back()->with('status', 'Incomes Edited SUccessfully');
     }
 

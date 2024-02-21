@@ -17,13 +17,25 @@
                         </div>
                     @endif
 
-                    <p class="text-3xl pb-6">Income Report</p>
-                    <div class="mb-10">
-                        <a href="{{ route('income.create') }}"
-                            class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="button">
-                            <span class="text-2xl">+</span> Add Income
-                        </a>
+                    <div class="flex justify-between">
+                        <p class="text-3xl pb-6">Income Report</p>
+                        <div class="flex">
+
+                            <div class="mb-10 pr-6">
+                                <a href="{{ route('incomeCategory.create') }}"
+                                    class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="button">
+                                    <span class="text-2xl">+</span> Add Income Category
+                                </a>
+                            </div>
+                            <div class="mb-10">
+                                <a href="{{ route('income.create') }}"
+                                    class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="button">
+                                    <span class="text-2xl">+</span> Add Income
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     {{-- {{ $expenses }} --}}
@@ -31,7 +43,7 @@
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
-                                {{-- <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Title</th> --}}
+
 
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Category</th>
                                 <th class="border border-slate-600 px-2 py-1 text-lg font-semibold text-black">Account</th>
@@ -43,11 +55,6 @@
                         </thead>
                         <tbody>
                             @foreach ($incomes as $income)
-                                {{-- @php
-                                $incomeCat = '';
-                                $incomeCategory = $incomeCategories->where('id', $income->category)->first();
-                                $incomeCat = $incomeCategory ? $incomeCategory->name : $income->category;
-                            @endphp --}}
                                 <tr>
                                     {{-- <td class="border border-slate-700 px-2 py-1">{{ $income->name }}</td> --}}
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->incomeCategory->name }}</td>
@@ -56,15 +63,14 @@
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->description }}</td>
                                     <td class="border border-slate-700 px-2 py-1">{{ $income->amount }}</td>
                                     <td class="border border-slate-700 px-2 py-1 flex">
-                                        <a href="{{ route('income.edit', $income) }}"
-                                            style="padding: 9px; background: green; color: white; margin-right: 4px">Edit
+                                        <a href="{{ route('income.edit', $income) }}" class="edit-btn">Edit
 
                                         </a>
                                         <form action="{{ route('income.destroy', $income) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <input type="submit" value="Delete"
-                                                style="padding: 10px; background: red; color: white; border: 1px solid red" />
+                                                style="padding: 10px; background: red; color: white; border: 1px solid red;  border-radius: 5px" />
 
                                         </form>
                                     </td>

@@ -24,21 +24,29 @@ class ExpenseController extends Controller
     }
     public function store(ExpenseRequest $request)
     {
-        
+
         $amount = $request->input('amount');
         $expense_category_id = $request->input('expense_category_id');
         $account_id = $request->input('account_id');
         $description = $request->input('description');
 
         $expense = new Expense();
-        
+
         $expense->amount = $amount;
         $expense->expense_category_id = $expense_category_id;
         $expense->account_id = $account_id;
         $expense->description = $description;
 
         $expense->save();
-   
+
+        //Logic to update the account related to the expense.
+        $account = $expense->account;
+        $currentBalance = $account->amount;
+        $newBalance = $currentBalance - $expense->amount;
+        $account->update(['amount' => $newBalance]);
+
+        // dd($account);
+
         return redirect()->back()->with('status', 'Expenses Created Successfully');
     }
     public function edit(Expense $expenses)
@@ -59,6 +67,10 @@ class ExpenseController extends Controller
         $account_id = $request->input('account_id');
         $description = $request->input('description');
 
+        // old amount of expence store here in a variable
+        $oldAmount = $expenses->amount;
+
+
 
         $expenses->amount = $amount;
         $expenses->expense_category_id = $expense_category_id;
@@ -66,6 +78,11 @@ class ExpenseController extends Controller
         $expenses->description = $description;
 
         $expenses->save();
+        // update account amount here.
+        $account = $expenses->account;
+        $currentBalance = $account->amount;
+        $newBalance = $currentBalance + $oldAmount - $expenses->$expenses->amount;
+        $account->update(['amount' => $newBalance]);
         return redirect()->back()->with('status', 'Expenses Edited Successfully');
     }
 
