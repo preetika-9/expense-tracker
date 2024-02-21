@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('amount');
+            $table->decimal('amount', 10, 2);
+            $table->foreignId('expense_categorie_id')->references('id')->on('expense_categories')->onDelete('cascade');
+            $table->foreignId('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('expenses');
     }
 };
