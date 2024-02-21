@@ -45,20 +45,22 @@ class IncomeController extends Controller
     public function edit(Income $incomes, IncomeCategory $incomeCategories, Account $accounts)
     {
         //    dd($incomeCategories);
+        $incomeCategories = IncomeCategory::all();
+        $accounts = Account::all();
         return view('incomes.edit-income', compact('incomes', 'incomeCategories', 'accounts'));
     }
     public function update(IncomeRequest $request, Income $incomes)
     {
 
         $amount = $request->input('amount');
-        $category_id = $request->input('category_id');
+        $income_category_id = $request->input('income_category_id');
         $account_id = $request->input('account_id');
 
         $description = $request->input('description');
 
 
         $incomes->amount = $amount;
-        $incomes->category_id = $category_id;
+        $incomes->income_category_id = $income_category_id;
         $incomes->account_id = $account_id;
         $incomes->description = $description;
 

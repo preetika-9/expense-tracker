@@ -35,15 +35,20 @@
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
+                           
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
                                     Category
                                 </label>
-                                <input
+                                <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="category" name="category" type="text" placeholder=" Category"
-                                    value="{{ $expenses->expenseCategory->name }}">
-                                @error('category')
+                                    id="category" name="expense_category_id" type="text" placeholder=" Category">
+                                    <option disabled>Select Category</option>
+                                    @foreach ($expenseCategories as $expenseCategorie)
+                                        <option {{ $expenseCategorie->id === $expenses->expenseCategory->id ? 'selected' : ''}} value="{{ $expenseCategorie->id }}">{{ $expenseCategorie->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('expense_category_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -51,11 +56,15 @@
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="account">
                                     Account
                                 </label>
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="account" name="account" type="text" placeholder=" Account"
-                                    value="{{ $expenses->account->name }}">
-                                @error('account')
+                                <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="account" name="account_id" type="text" placeholder=" account">
+                                <option selected disabled>Select Account</option>
+                                @foreach ($accounts as $account)
+                                    <option  {{ $account->id === $expenses->account->id ? 'selected' : '' }} value="{{ $account->id }}">{{ $account->name }}</option>
+                                @endforeach
+                            </select>
+                                @error('account_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>

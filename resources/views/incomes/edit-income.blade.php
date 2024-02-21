@@ -22,18 +22,7 @@
                             action="{{ route('income.update', $incomes) }}" method="post">
                             @csrf
                             @method('put')
-                            <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                    Name
-                                </label>
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="name" name="name" type="text" placeholder= "Name"
-                                    value="{{ $incomes->name }}">
-                                @error('name')
-                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                                @enderror
-                            </div>
+
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">
                                     Amount
@@ -46,27 +35,40 @@
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
+
                             <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
                                     Category
                                 </label>
-                                <input
+                                <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="category" name="category" type="text" placeholder=" Category"
-                                    value="{{ $incomes->category }}">
-                                @error('category')
+                                    id="category" name="income_category_id" type="text" placeholder="Category">
+                                    <option selected disabled>Select Category</option>
+                                    @foreach ($incomeCategories as $incomeCategorie)
+                                        <option
+                                            {{ $incomeCategorie->id === $incomes->incomeCategory->id ? 'selected' : '' }}
+                                            value="{{ $incomeCategorie->id }}">{{ $incomeCategorie->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('income_category_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
+
                             <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="account">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="ac5count">
                                     Account
                                 </label>
-                                <input
+                                <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="account" name="account" type="text" placeholder=" Account"
-                                    value="{{ $incomes->account }}">
-                                @error('account')
+                                    id="account" name="account_id" type="text" placeholder=" account">
+                                    <option selected disabled>Select Account</option>
+                                    @foreach ($accounts as $account)
+                                        <option {{ $account->id === $incomes->account->id ? 'selected' : '' }}
+                                            value="{{ $account->id }}">{{ $account->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('account_id')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>

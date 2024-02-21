@@ -44,7 +44,9 @@ class ExpenseController extends Controller
     public function edit(Expense $expenses)
     {
         // dd($expenses);
-        return view('expenses.edit-expense', compact('expenses'));
+        $expenseCategories = ExpenseCategory::all();
+        $accounts = Account::all();
+        return view('expenses.edit-expense', compact('expenses', 'expenseCategories', 'accounts'));
     }
 
     public function update(ExpenseRequest $request, Expense $expenses)
